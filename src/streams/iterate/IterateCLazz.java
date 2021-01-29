@@ -10,6 +10,6 @@ public class IterateCLazz {
 
         Class<?> clzz = ArrayList.class;
 
-        Stream.<Class<?>>iterate(clzz, c->c.getSuperclass()).forEach(e-> System.out.println(e));
+        Stream.<Class<?>>iterate(clzz, c->c!=null,c->c.getSuperclass()).forEach(e-> System.out.println(e));
     }
 }

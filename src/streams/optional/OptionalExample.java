@@ -30,6 +30,14 @@ public class OptionalExample {
         //stream with java 9 optioanl stream
         listS = list.stream().flatMap(e->e.stream()).collect(Collectors.toList());
         listS.forEach(e-> System.out.println(e));
+
+
+        System.out.println("-----");
+        //normal way with Stream list
+        List<Stream> listStream = list.stream().map(e->e.isPresent()?Stream.of(e.get()):Stream.empty()).collect(Collectors.toList());
+        listStream.stream().flatMap(e->e).forEach(e-> System.out.println(e));
+        System.out.println("---------");
+
     }
 
 
